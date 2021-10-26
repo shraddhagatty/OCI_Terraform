@@ -1,0 +1,2 @@
+# Oci-example
+oci template
