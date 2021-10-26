@@ -1,9 +1,9 @@
 # Copyright (c) 2020, Oracle and/or its affiliates. All rights reserved.
 # Licensed under the Universal Permissive License v 1.0 as shown at https://oss.oracle.com/licenses/upl.
 
-title: "LESSON 7a - DBSystem with DataGuard"
-description: "FoggyKitchen Terraform OCI Course - LESSON 7a - DBSystem with DataGuard."
-stackDescription: "FoggyKitchen Terraform OCI Course - LESSON 7a - DBSystem with DataGuard."
+title: "OCI Template example"
+description: "OCI Template"
+stackDescription: "OCI Template"
 schemaVersion: 1.1.0
 version: "20201028"
 locale: "en"
@@ -48,9 +48,6 @@ variableGroups:
   - BillingOwner
   - CostCenter
   - Workload
-  - ip_subnet_dmz_prod
-  - ip_subnet_dmz_nonprod
-  - ip_subnet_ext_nonprod
 
 variables:
 
@@ -168,42 +165,42 @@ variables:
   StackName:
     type: string
     required: false
-    default: "10.0.0.0/16"
+    default: " "
     title: "Stackname"
     description: "Tags"
 
   StackOwner:
     type: string
     required: false
-    default: "10.0.0.0/16"
+    default: " "
     title: "Stackowner"
     description: "Tags"
 
   ProjectName:
     type: string
     required: false
-    default: "10.0.0.0/16"
+    default: " "
     title: "ProjectName"
     description: "Tags"
 
   BillingOwner:
     type: string
     required: false
-    default: "10.0.0.0/16"
+    default: " "
     title: "BillingOwner"
     description: "Tags"
 
   CostCenter:
     type: string
     required: false
-    default: "10.0.0.0/16"
+    default: " "
     title: "CostCenter"
     description: "Tags"
 
   WorkLoad:
     type: string
     required: false
-    default: "10.0.0.0/16"
+    default: " "
     title: "WorkLoad"
     description: "Tags"
 
