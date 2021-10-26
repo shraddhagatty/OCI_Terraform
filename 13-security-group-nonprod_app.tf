@@ -17,7 +17,7 @@ output "security_group_nonprod_app_id" {
 # EGRESS:
 
 module "nonprod_app_egress_nprd_app_ext_ssh" {
-    source                 = ".modules/network-sec-rules"
+    source                 = "./modules/network-sec-rules"
     net_sec_group_id       = module.security_group_nonprod_app.group_id
     net_sec_rule_desc      = "nonprod_app_egress_nprd_app_ext_ssh"
     net_sec_rule_dest      = module.security_group_nonprod_app_ext.group_id
@@ -30,7 +30,7 @@ module "nonprod_app_egress_nprd_app_ext_ssh" {
 ############################################################################
 # ingress tcp :
 module "nonprod_app_ingress_tcp" {
-    source                = ".modules/network-sec-rules"
+    source                = "./modules/network-sec-rules"
     net_sec_group_id      = module.security_group_nonprod_app.group_id
     net_sec_rule_desc    = ""
     net_sec_rule_source = module.security_group_nonprod_lb.group_id
@@ -41,7 +41,7 @@ module "nonprod_app_ingress_tcp" {
 }
 
 module "nonprod_app_ingress_tcp_db" {
-    source                = ".modules/network-sec-rules"
+    source                = "./modules/network-sec-rules"
     net_sec_group_id      = module.security_group_nonprod_app.group_id
     net_sec_rule_desc    = ""
     net_sec_rule_source = module.security_group_nonprod_db.group_id
@@ -52,7 +52,7 @@ module "nonprod_app_ingress_tcp_db" {
 }
 
 module "nonprod_app_ingress_sftp_external" {
-    source                = ".modules/network-sec-rules"
+    source                = "./modules/network-sec-rules"
     net_sec_group_id      = module.security_group_nonprod_app.group_id
     net_sec_rule_desc    = ""
     net_sec_rule_source = module.security_group_nonprod_lb_ext.group_id
@@ -169,7 +169,7 @@ module "nonprod_app_ingress_netbios_tcp_imerja" {
 } */
 
 module "nonprod_app_ingress_tcp_22" {
-    source                = ".modules/network-sec-rules"
+    source                = "./modules/network-sec-rules"
     net_sec_group_id      = module.security_group_nonprod_app.group_id
     net_sec_rule_desc    = "LB SFTP access"
     net_sec_rule_source = module.security_group_nonprod_lb_ext.group_id
@@ -181,7 +181,7 @@ module "nonprod_app_ingress_tcp_22" {
 
 # nonprod_app_ingress_smt_from_db:
 module "nonprod_app_ingress_tcp_25" {
-    source                = ".modules/network-sec-rules"
+    source                = "./modules/network-sec-rules"
     net_sec_group_id      = module.security_group_nonprod_app.group_id
     net_sec_rule_desc    = "smtp access"
     net_sec_rule_source = module.security_group_nonprod_common.group_id
