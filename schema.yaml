@@ -82,7 +82,7 @@ variables:
 
   customer_label:
     title: "Tenancy ID"
-    description: "The Oracle Cloud Identifier (OCID) for your tenancy"
+    description: "Label used as a prefix for naming resources"
     type: string
     required: true
     visibile: false
