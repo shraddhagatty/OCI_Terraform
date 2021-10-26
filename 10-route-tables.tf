@@ -4,7 +4,7 @@
 # Prod Red Tier:
 
 module "route_table_prod_ext" {
-    source               = "git::https://git.version1.com/scm/ivo/oci-terraform-modules-v0.12.git//modules/route_table"
+    source               = "./modules/route_table"
     display_name         = "prod-red-rt"
     vcn_id               = module.vcn.vcn_id
     compartment_id       = module.compartment-common-services.compartment_id
@@ -42,7 +42,7 @@ module "route_table_prod_ext" {
 # Prod Amber Tier:
 
 module "route_table_prod_app" {
-    source               = "git::https://git.version1.com/scm/ivo/oci-terraform-modules-v0.12.git//modules/route_table"
+    source               = "./modules/route_table"
     display_name         = "prod-amber-rt"
     vcn_id               = module.vcn.vcn_id
     compartment_id       = module.compartment-common-services.compartment_id
@@ -101,7 +101,7 @@ module "route_table_prod_app" {
 # Prod Green Tier:
 
 module "route_table_prod_db" {
-    source               = "git::https://git.version1.com/scm/ivo/oci-terraform-modules-v0.12.git//modules/route_table"
+    source               = "./modules/route_table"
     display_name         = "prod-green-rt"
     vcn_id               = module.vcn.vcn_id
     compartment_id       = module.compartment-common-services.compartment_id
@@ -144,7 +144,7 @@ module "route_table_prod_db" {
 # NonProd Red Tier:
 
 module "route_table_nonprod_ext" {
-    source               = "git::https://git.version1.com/scm/ivo/oci-terraform-modules-v0.12.git//modules/route_table"
+    source               = "./modules/route_table"
     display_name         = "nonprod-red-rt"
     vcn_id               = module.vcn.vcn_id
     compartment_id       = module.compartment-common-services.compartment_id
@@ -183,7 +183,7 @@ module "route_table_nonprod_ext" {
 # NonProd Amber Tier:
 
 module "route_table_nonprod_app" {
-    source               = "git::https://git.version1.com/scm/ivo/oci-terraform-modules-v0.12.git//modules/route_table"
+    source               = "./modules/route_table"
     display_name         = "nonprod-amber-rt"
     vcn_id               = module.vcn.vcn_id
     compartment_id       = module.compartment-common-services.compartment_id
@@ -237,7 +237,7 @@ module "route_table_nonprod_app" {
 # NonProd Database Tier:
 
 module "route_table_nonprod_db" {
-    source               = "git::https://git.version1.com/scm/ivo/oci-terraform-modules-v0.12.git//modules/route_table"
+    source               = "./modules/route_table"
     display_name         = "nonprod-green-rt"
     vcn_id               = module.vcn.vcn_id
     compartment_id       = module.compartment-common-services.compartment_id

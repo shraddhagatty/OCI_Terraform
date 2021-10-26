@@ -3,7 +3,7 @@
 ############################################################################
 
 module "security_group_nonprod_lb_ext" {
-    source                         = "git::https://git.version1.com/scm/ivo/oci-terraform-modules-v0.12.git//modules/network-sec-groups"
+    source                         = "./modules/network-sec-groups"
     compartment_id                 = module.compartment-common-services.compartment_id
     vcn_id                         = module.vcn.vcn_id
     network_sec_group_display_name = "nonprod_lb_ext"
@@ -69,7 +69,7 @@ resource "oci_core_network_security_group_security_rule" "nonprod_lb_ext_ingress
 # }
 
 # module "nonprod_lb_ext_ingress_db_losty" {
-#     source                   = "git::https://git.version1.com/scm/ivo/oci-terraform-modules-v0.12.git//modules/network-sec-rules"
+#     source                   = "./modules/network-sec-rules"
 #     net_sec_group_id         = module.security_group_nonprod_lb_ext.group_id
 #     net_sec_rule_desc        = "nonprod_lb_ext_ingress_db_losty"
 #     net_sec_rule_source      = "37.228.211.37/32"
@@ -114,7 +114,7 @@ resource "oci_core_network_security_group_security_rule" "nonprod_lb_ext_ingress
 # }
 
 # module "nonprod_lb_ext_ingress_https_nonprod_app" {
-#     source                   = "git::https://git.version1.com/scm/ivo/oci-terraform-modules-v0.12.git//modules/network-sec-rules"
+#     source                   = "./modules/network-sec-rules"
 #     net_sec_group_id         = module.security_group_nonprod_lb_ext.group_id
 #     net_sec_rule_desc        = "nonprod_lb_ext_ingress_https_nonprod_app"
 #     net_sec_rule_source      = module.security_group_nonprod_app.group_id
@@ -125,7 +125,7 @@ resource "oci_core_network_security_group_security_rule" "nonprod_lb_ext_ingress
 # }
 
 # module "nonprod_lb_ext_ingress_https_nonprod_app_ext" {
-#     source                   = "git::https://git.version1.com/scm/ivo/oci-terraform-modules-v0.12.git//modules/network-sec-rules"
+#     source                   = "./modules/network-sec-rules"
 #     net_sec_group_id         = module.security_group_nonprod_lb_ext.group_id
 #     net_sec_rule_desc        = "nonprod_lb_ext_ingress_https_nonprod_app_ext"
 #     net_sec_rule_source      = module.security_group_nonprod_app_ext.group_id
@@ -139,7 +139,7 @@ resource "oci_core_network_security_group_security_rule" "nonprod_lb_ext_ingress
 # EGRESS:
 
 # module "nonprod_lb_ext_egress_http_dev_app_ext" {
-#     source                 = "git::https://git.version1.com/scm/ivo/oci-terraform-modules-v0.12.git//modules/network-sec-rules"
+#     source                 = "./modules/network-sec-rules"
 #     net_sec_group_id       = module.security_group_nonprod_lb_ext.group_id
 #     net_sec_rule_desc      = "nonprod_lb_ext_egress_http_dev_app_ext"
 #     net_sec_rule_dest      = module.security_group_nonprod_app_ext.group_id
@@ -150,7 +150,7 @@ resource "oci_core_network_security_group_security_rule" "nonprod_lb_ext_ingress
 # }
 
 module "nonprod_lb_ext_egress_all" {
-    source                 = "git::https://git.version1.com/scm/ivo/oci-terraform-modules-v0.12.git//modules/network-sec-rules"
+    source                 = "./modules/network-sec-rules"
     net_sec_group_id       = module.security_group_nonprod_lb_ext.group_id
     net_sec_rule_desc      = "nonprod_lb_ext_egress_all"
     net_sec_rule_dest      = "0.0.0.0/0"

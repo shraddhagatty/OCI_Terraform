@@ -2,7 +2,7 @@
 # Network Security Groups - prod_lb:
 ############################################################################
 module "security_group_prod_lb" {
-    source                         = "git::https://git.version1.com/scm/ivo/oci-terraform-modules-v0.12.git//modules/network-sec-groups"
+    source                         = "./modules/network-sec-groups"
     compartment_id                 = module.compartment-common-services.compartment_id
     vcn_id                         = module.vcn.vcn_id
     network_sec_group_display_name = "prod_lb"
@@ -16,7 +16,7 @@ output "security_group_prod_lb_id" {
 /* 
 # ingress tcp :
 module "prod_lb_ingress_tcp_2" {
-    source                = "git::https://git.version1.com/scm/ivo/oci-terraform-modules-v0.12.git//modules/network-sec-rules"
+    source                = "./modules/network-sec-rules"
     net_sec_group_id      = module.security_group_prod_lb.group_id
     net_sec_rule_desc    = "Frontend"
     net_sec_rule_source = var.ip_barts_domain
@@ -27,7 +27,7 @@ module "prod_lb_ingress_tcp_2" {
 } */
  
 module "prod_lb_ingress_tcp_d" {
-    source                = "git::https://git.version1.com/scm/ivo/oci-terraform-modules-v0.12.git//modules/network-sec-rules"
+    source                = "./modules/network-sec-rules"
     net_sec_group_id      = module.security_group_prod_lb.group_id
     net_sec_rule_desc    = "http disco"
     net_sec_rule_source = "0.0.0.0/0"
@@ -38,7 +38,7 @@ module "prod_lb_ingress_tcp_d" {
 }
 
 module "prod_lb_ingress_tcp_3" {
-    source                = "git::https://git.version1.com/scm/ivo/oci-terraform-modules-v0.12.git//modules/network-sec-rules"
+    source                = "./modules/network-sec-rules"
     net_sec_group_id      = module.security_group_prod_lb.group_id
     net_sec_rule_desc    = "Frontend test access"
     net_sec_rule_source = module.security_group_prod_common.group_id
@@ -49,7 +49,7 @@ module "prod_lb_ingress_tcp_3" {
 }
 
 module "prod_lb_egress_all" {
-    source                = "git::https://git.version1.com/scm/ivo/oci-terraform-modules-v0.12.git//modules/network-sec-rules"
+    source                = "./modules/network-sec-rules"
     net_sec_group_id      = module.security_group_prod_lb.group_id
     net_sec_rule_desc    = ""
     net_sec_rule_dest = module.security_group_prod_app.group_id
@@ -62,7 +62,7 @@ module "prod_lb_egress_all" {
 /*
 # prod_lb_egress_disco_http1:
 module "prod_lb_egress_disco_http1" {
-    source                 = "git::https://git.version1.com/scm/ivo/oci-terraform-modules-v0.12.git//modules/network-sec-rules"
+    source                 = "./modules/network-sec-rules"
     net_sec_group_id       = module.security_group_prod_lb.group_id
     net_sec_rule_desc      = "prod_lb_egress_disco_http1"
     net_sec_rule_dest      = module.security_group_disco.group_id
@@ -74,7 +74,7 @@ module "prod_lb_egress_disco_http1" {
 
 # prod_lb_egress_disco_all:
 module "prod_lb_egress_disco_all" {
-    source                 = "git::https://git.version1.com/scm/ivo/oci-terraform-modules-v0.12.git//modules/network-sec-rules"
+    source                 = "./modules/network-sec-rules"
     net_sec_group_id       = module.security_group_prod_lb.group_id
     net_sec_rule_desc      = "prod_lb_egress_disco_all"
     net_sec_rule_dest      = module.security_group_disco.group_id
@@ -84,7 +84,7 @@ module "prod_lb_egress_disco_all" {
 
 # prod_lb_ingress_disco_http1 :
 module "prod_lb_ingress_disco_http1" {
-    source                   = "git::https://git.version1.com/scm/ivo/oci-terraform-modules-v0.12.git//modules/network-sec-rules"
+    source                   = "./modules/network-sec-rules"
     net_sec_group_id         = module.security_group_prod_lb.group_id
     net_sec_rule_desc        = "prod_lb_ingress_disco_http1"
     net_sec_rule_source      = module.security_group_disco.group_id
@@ -98,7 +98,7 @@ module "prod_lb_ingress_disco_http1" {
 ############################################################################
 # ingress tcp : for Homerton VPN 
 module "prod_lb_ingress_tcp_4" {
-    source                = "git::https://git.version1.com/scm/ivo/oci-terraform-modules-v0.12.git//modules/network-sec-rules"
+    source                = "./modules/network-sec-rules"
     net_sec_group_id      = module.security_group_prod_lb.group_id
     net_sec_rule_desc    = "Homerton"
     net_sec_rule_source = var.ip_barts_homerton

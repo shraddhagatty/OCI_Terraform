@@ -3,7 +3,7 @@
 ############################################################################
 
 module "vcn" {
-  source               = "git::https://git.version1.com/scm/ivo/oci-terraform-modules-v0.12.git//modules/vcn"
+  source               = "./modules/vcn"
   vcn_display_name     = "${var.customer_label}-VCN"
   vcn_dns_label        = "${var.customer_label}ocivcn"
   cidr_block           = var.ip_vcn

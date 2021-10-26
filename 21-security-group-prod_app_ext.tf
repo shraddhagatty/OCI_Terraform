@@ -2,7 +2,7 @@
 # Network Security Groups - prod_app_ext:
 ############################################################################
 module "security_group_prod_app_ext" {
-    source                         = "git::https://git.version1.com/scm/ivo/oci-terraform-modules-v0.12.git//modules/network-sec-groups"
+    source                         = "./modules/network-sec-groups"
     compartment_id                 = module.compartment-common-services.compartment_id
     vcn_id                         = module.vcn.vcn_id
     network_sec_group_display_name = "prod_app_ext"
@@ -16,7 +16,7 @@ output "security_group_prod_app_ext_id" {
  
 # ingress tcp :
 module "prod_app_ext_ingress_tcp_2" {
-    source                = "git::https://git.version1.com/scm/ivo/oci-terraform-modules-v0.12.git//modules/network-sec-rules"
+    source                = "./modules/network-sec-rules"
     net_sec_group_id      = module.security_group_prod_app.group_id
     net_sec_rule_desc    = "LB access"
     net_sec_rule_source = module.security_group_prod_lb_ext.group_id
@@ -29,7 +29,7 @@ module "prod_app_ext_ingress_tcp_2" {
 
 
 module "prod_app_ext_ingress_tcp_3" {
-    source                = "git::https://git.version1.com/scm/ivo/oci-terraform-modules-v0.12.git//modules/network-sec-rules"
+    source                = "./modules/network-sec-rules"
     net_sec_group_id      = module.security_group_prod_app_ext.group_id
     net_sec_rule_desc    = ""
     net_sec_rule_source = module.security_group_prod_access.group_id
@@ -40,7 +40,7 @@ module "prod_app_ext_ingress_tcp_3" {
 }
 
 module "prod_app_ext_ingress_tcp_4" {
-    source                = "git::https://git.version1.com/scm/ivo/oci-terraform-modules-v0.12.git//modules/network-sec-rules"
+    source                = "./modules/network-sec-rules"
     net_sec_group_id      = module.security_group_prod_app_ext.group_id
     net_sec_rule_desc    = ""
     net_sec_rule_source = module.security_group_prod_access.group_id
@@ -51,7 +51,7 @@ module "prod_app_ext_ingress_tcp_4" {
 }
 
 module "prod_app_ext_ingress_prod_app_http3" {
-    source                   = "git::https://git.version1.com/scm/ivo/oci-terraform-modules-v0.12.git//modules/network-sec-rules"
+    source                   = "./modules/network-sec-rules"
     net_sec_group_id         = module.security_group_prod_app_ext.group_id
     net_sec_rule_desc        = "prod_app_ext_ingress_prod_app_http3"
     net_sec_rule_source      = module.security_group_prod_app.group_id
@@ -62,7 +62,7 @@ module "prod_app_ext_ingress_prod_app_http3" {
 }
 
 module "prod_app_ext_ingress_http_prod_lb_ext" {
-    source                = "git::https://git.version1.com/scm/ivo/oci-terraform-modules-v0.12.git//modules/network-sec-rules"
+    source                = "./modules/network-sec-rules"
     net_sec_group_id      = module.security_group_prod_app_ext.group_id
     net_sec_rule_desc    = "prod_app_ext_ingress_http_prod_lb_ext"
     net_sec_rule_source = module.security_group_prod_lb_ext.group_id

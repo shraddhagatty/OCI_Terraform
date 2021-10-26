@@ -2,7 +2,7 @@
 # Network Security Groups - prod_lb_ext:
 ############################################################################
 module "security_group_prod_lb_ext" {
-    source                         = "git::https://git.version1.com/scm/ivo/oci-terraform-modules-v0.12.git//modules/network-sec-groups"
+    source                         = "./modules/network-sec-groups"
     compartment_id                 = module.compartment-common-services.compartment_id
     vcn_id                         = module.vcn.vcn_id
     network_sec_group_display_name = "prod_lb_ext"
@@ -35,7 +35,7 @@ resource "oci_core_network_security_group_security_rule" "prod_lb_ext_ingress_tc
 */
 # ingress tcp :
 # module "prod_lb_ext_ingress_tcp_2" {
-#     source                = "git::https://git.version1.com/scm/ivo/oci-terraform-modules-v0.12.git//modules/network-sec-rules"
+#     source                = "./modules/network-sec-rules"
 #     net_sec_group_id      = module.security_group_prod_lb_ext.group_id
 #     net_sec_rule_desc    = ""
 #     net_sec_rule_source = "0.0.0.0/0"
@@ -47,7 +47,7 @@ resource "oci_core_network_security_group_security_rule" "prod_lb_ext_ingress_tc
 
 /*
 module "prod_lb_ext_ingress_tcp_BACS_4443" {
-    source                = "git::https://git.version1.com/scm/ivo/oci-terraform-modules-v0.12.git//modules/network-sec-rules"
+    source                = "./modules/network-sec-rules"
     net_sec_group_id      = module.security_group_prod_lb_ext.group_id
     net_sec_rule_desc    = "BACS access for banks"
     net_sec_rule_source  = var.ip_v1_josh_test
@@ -59,7 +59,7 @@ module "prod_lb_ext_ingress_tcp_BACS_4443" {
 */
 
 module "prod_lb_ext_egress_all" {
-    source                = "git::https://git.version1.com/scm/ivo/oci-terraform-modules-v0.12.git//modules/network-sec-rules"
+    source                = "./modules/network-sec-rules"
     net_sec_group_id      = module.security_group_prod_lb_ext.group_id
     net_sec_rule_desc    = ""
     net_sec_rule_dest = module.security_group_prod_app_ext.group_id
@@ -68,7 +68,7 @@ module "prod_lb_ext_egress_all" {
 }
 
 module "prod_lb_ext_egress_all_int" {
-    source                = "git::https://git.version1.com/scm/ivo/oci-terraform-modules-v0.12.git//modules/network-sec-rules"
+    source                = "./modules/network-sec-rules"
     net_sec_group_id      = module.security_group_prod_lb_ext.group_id
     net_sec_rule_desc    = ""
     net_sec_rule_dest = module.security_group_prod_app.group_id
@@ -77,7 +77,7 @@ module "prod_lb_ext_egress_all_int" {
 }
 
 module "prod_lb_ext_egress_prod_db" {
-    source                = "git::https://git.version1.com/scm/ivo/oci-terraform-modules-v0.12.git//modules/network-sec-rules"
+    source                = "./modules/network-sec-rules"
     net_sec_group_id      = module.security_group_prod_lb_ext.group_id
     net_sec_rule_desc    = "prod_lb_ext_egress_prod_db"
     net_sec_rule_dest = module.security_group_prod_db.group_id

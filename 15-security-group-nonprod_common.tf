@@ -2,7 +2,7 @@
 # Network Security Groups - nonprod_common:
 ############################################################################
 module "security_group_nonprod_common" {
-    source                         = "git::https://git.version1.com/scm/ivo/oci-terraform-modules-v0.12.git//modules/network-sec-groups"
+    source                         = "./modules/network-sec-groups"
     compartment_id                 = module.compartment-common-services.compartment_id
     vcn_id                         = module.vcn.vcn_id
     network_sec_group_display_name = "nonprod_common"
@@ -16,7 +16,7 @@ output "security_group_nonprod_common_id" {
  
 # ingress tcp ssh_access_nonprod_rdp_:
 module "nonprod_common_ingress_tcp_ssh_access_nonprod_rdp_" {
-    source                = "git::https://git.version1.com/scm/ivo/oci-terraform-modules-v0.12.git//modules/network-sec-rules"
+    source                = "./modules/network-sec-rules"
     net_sec_group_id      = module.security_group_nonprod_common.group_id
     net_sec_rule_desc    = "ssh_access_nonprod_rdp_"
     net_sec_rule_source = module.security_group_nonprod_common.group_id
@@ -29,7 +29,7 @@ module "nonprod_common_ingress_tcp_ssh_access_nonprod_rdp_" {
  
 # ingress udp snmp_access_nonprod_common:
 module "nonprod_common_ingress_udp_snmp_access_nonprod_common" {
-    source                = "git::https://git.version1.com/scm/ivo/oci-terraform-modules-v0.12.git//modules/network-sec-rules"
+    source                = "./modules/network-sec-rules"
     net_sec_group_id      = module.security_group_nonprod_common.group_id
     net_sec_rule_desc    = "snmp_access_nonprod_common"
     net_sec_rule_source = module.security_group_nonprod_common.group_id
@@ -42,7 +42,7 @@ module "nonprod_common_ingress_udp_snmp_access_nonprod_common" {
  
 # ingress tcp ssh_access_nonprod_common:
 module "nonprod_common_ingress_tcp_ssh_access_nonprod_common" {
-    source                = "git::https://git.version1.com/scm/ivo/oci-terraform-modules-v0.12.git//modules/network-sec-rules"
+    source                = "./modules/network-sec-rules"
     net_sec_group_id      = module.security_group_nonprod_common.group_id
     net_sec_rule_desc    = "ssh_access_nonprod_common"
     net_sec_rule_source = module.security_group_nonprod_common.group_id
@@ -55,7 +55,7 @@ module "nonprod_common_ingress_tcp_ssh_access_nonprod_common" {
  
 # egress all :
 module "nonprod_common_egress_all" {
-    source                = "git::https://git.version1.com/scm/ivo/oci-terraform-modules-v0.12.git//modules/network-sec-rules"
+    source                = "./modules/network-sec-rules"
     net_sec_group_id      = module.security_group_nonprod_common.group_id
     net_sec_rule_desc    = ""
     net_sec_rule_dest = module.security_group_nonprod_common.group_id
@@ -66,7 +66,7 @@ module "nonprod_common_egress_all" {
 /* 
 # egress all :
 module "nonprod_common_egress_all_2" {
-    source                = "git::https://git.version1.com/scm/ivo/oci-terraform-modules-v0.12.git//modules/network-sec-rules"
+    source                = "./modules/network-sec-rules"
     net_sec_group_id      = module.security_group_nonprod_common.group_id
     net_sec_rule_desc    = ""
     net_sec_rule_dest = var.ip_barts_domain
@@ -77,7 +77,7 @@ module "nonprod_common_egress_all_2" {
  
 # ingress icmp :
 module "nonprod_common_ingress_icmp" {
-    source                = "git::https://git.version1.com/scm/ivo/oci-terraform-modules-v0.12.git//modules/network-sec-rules"
+    source                = "./modules/network-sec-rules"
     net_sec_group_id      = module.security_group_nonprod_common.group_id
     net_sec_rule_desc    = ""
     net_sec_rule_source = var.ip_barts_domain
@@ -88,7 +88,7 @@ module "nonprod_common_ingress_icmp" {
  
 # ingress icmp :
 module "nonprod_common_ingress_icmp_2" {
-    source                = "git::https://git.version1.com/scm/ivo/oci-terraform-modules-v0.12.git//modules/network-sec-rules"
+    source                = "./modules/network-sec-rules"
     net_sec_group_id      = module.security_group_nonprod_common.group_id
     net_sec_rule_desc    = ""
     net_sec_rule_source = module.security_group_nonprod_common.group_id
@@ -99,7 +99,7 @@ module "nonprod_common_ingress_icmp_2" {
  
 # egress tcp :
 module "nonprod_common_egress_tcp" {
-    source                = "git::https://git.version1.com/scm/ivo/oci-terraform-modules-v0.12.git//modules/network-sec-rules"
+    source                = "./modules/network-sec-rules"
     net_sec_group_id      = module.security_group_nonprod_common.group_id
     net_sec_rule_desc    = ""
     net_sec_rule_dest = "0.0.0.0/0"
@@ -111,7 +111,7 @@ module "nonprod_common_egress_tcp" {
  
 # ingress tcp vnc_access_nonprod_common:
 module "nonprod_common_ingress_tcp_vnc_access_nonprod_common" {
-    source                = "git::https://git.version1.com/scm/ivo/oci-terraform-modules-v0.12.git//modules/network-sec-rules"
+    source                = "./modules/network-sec-rules"
     net_sec_group_id      = module.security_group_nonprod_common.group_id
     net_sec_rule_desc    = "vnc_access_nonprod_common"
     net_sec_rule_source = module.security_group_nonprod_common.group_id
@@ -124,7 +124,7 @@ module "nonprod_common_ingress_tcp_vnc_access_nonprod_common" {
 
 # egress_all :
 module "nonprod_common_egress_all_ext" {
-    source                 = "git::https://git.version1.com/scm/ivo/oci-terraform-modules-v0.12.git//modules/network-sec-rules"
+    source                 = "./modules/network-sec-rules"
     net_sec_group_id       = module.security_group_nonprod_common.group_id
     net_sec_rule_desc      = "nonprod_common_egress_all_ext"
     net_sec_rule_dest      = "0.0.0.0/0"
@@ -134,7 +134,7 @@ module "nonprod_common_egress_all_ext" {
 
 # ingress tcp nfs_access_nonprod_common:
 module "nonprod_common_ingress_tcp_nfs_access_nonprod_common" {
-    source                = "git::https://git.version1.com/scm/ivo/oci-terraform-modules-v0.12.git//modules/network-sec-rules"
+    source                = "./modules/network-sec-rules"
     net_sec_group_id      = module.security_group_nonprod_common.group_id
     net_sec_rule_desc    = "vnc_access_nonprod_common"
     net_sec_rule_source = module.security_group_nonprod_common.group_id
@@ -146,7 +146,7 @@ module "nonprod_common_ingress_tcp_nfs_access_nonprod_common" {
 
 # ingress tcp nfs_access_prod_common:
 module "nonprod_common_ingress_tcp_nfs_access_nonprod_common_2" {
-    source                = "git::https://git.version1.com/scm/ivo/oci-terraform-modules-v0.12.git//modules/network-sec-rules"
+    source                = "./modules/network-sec-rules"
     net_sec_group_id      = module.security_group_nonprod_common.group_id
     net_sec_rule_desc    = "vnc_access_nonprod_common"
     net_sec_rule_source = module.security_group_nonprod_common.group_id
@@ -159,7 +159,7 @@ module "nonprod_common_ingress_tcp_nfs_access_nonprod_common_2" {
 
 # ingress udp nfs_access_nonprod_common:
 module "nonprod_common_ingress_udp_nfs_access_nonprod_common" {
-    source                = "git::https://git.version1.com/scm/ivo/oci-terraform-modules-v0.12.git//modules/network-sec-rules"
+    source                = "./modules/network-sec-rules"
     net_sec_group_id      = module.security_group_nonprod_common.group_id
     net_sec_rule_desc    = "vnc_access_nonprod_common"
     net_sec_rule_source = module.security_group_nonprod_common.group_id
@@ -171,7 +171,7 @@ module "nonprod_common_ingress_udp_nfs_access_nonprod_common" {
 
 # ingress udp nfs_access_nonprod_common:
 module "nonprod_common_ingress_udp_nfs_access_nonprod_common_2" {
-    source                = "git::https://git.version1.com/scm/ivo/oci-terraform-modules-v0.12.git//modules/network-sec-rules"
+    source                = "./modules/network-sec-rules"
     net_sec_group_id      = module.security_group_nonprod_common.group_id
     net_sec_rule_desc    = "vnc_access_nonprod_common"
     net_sec_rule_source = module.security_group_nonprod_common.group_id
@@ -183,7 +183,7 @@ module "nonprod_common_ingress_udp_nfs_access_nonprod_common_2" {
 
 # nonprod_app_ingress_smb_tcp1_common :
 module "nonprod_common_ingress_smb_tcp1_common" {
-    source                = "git::https://git.version1.com/scm/ivo/oci-terraform-modules-v0.12.git//modules/network-sec-rules"
+    source                = "./modules/network-sec-rules"
     net_sec_group_id      = module.security_group_nonprod_common.group_id
     net_sec_rule_desc    = "nonprod_app_ingress_smb_tcp1_barts"
     net_sec_rule_source = module.security_group_nonprod_common.group_id
@@ -195,7 +195,7 @@ module "nonprod_common_ingress_smb_tcp1_common" {
 
 # nonprod_app_ingress_smb_tcp2_common :
 module "nonprod_common_ingress_smb_tcp2_common" {
-    source                = "git::https://git.version1.com/scm/ivo/oci-terraform-modules-v0.12.git//modules/network-sec-rules"
+    source                = "./modules/network-sec-rules"
     net_sec_group_id      = module.security_group_nonprod_common.group_id
     net_sec_rule_desc    = "nonprod_app_ingress_smb_tcp1_barts"
     net_sec_rule_source = module.security_group_nonprod_common.group_id
@@ -206,7 +206,7 @@ module "nonprod_common_ingress_smb_tcp2_common" {
 }
 # nonprod_app_ingress_smb_udp1_common :
 module "nonprod_common_ingress_smb_udp1_common" {
-    source                = "git::https://git.version1.com/scm/ivo/oci-terraform-modules-v0.12.git//modules/network-sec-rules"
+    source                = "./modules/network-sec-rules"
     net_sec_group_id      = module.security_group_nonprod_common.group_id
     net_sec_rule_desc    = "nonprod_app_ingress_smb_tcp1_barts"
     net_sec_rule_source = module.security_group_nonprod_common.group_id
@@ -218,7 +218,7 @@ module "nonprod_common_ingress_smb_udp1_common" {
 
 # nonprod_app_ingress_smb_udp2_common :
 module "nonprod_common_ingress_smb_udp2_common" {
-    source                = "git::https://git.version1.com/scm/ivo/oci-terraform-modules-v0.12.git//modules/network-sec-rules"
+    source                = "./modules/network-sec-rules"
     net_sec_group_id      = module.security_group_nonprod_common.group_id
     net_sec_rule_desc    = "nonprod_app_ingress_smb_tcp1_barts"
     net_sec_rule_source = module.security_group_nonprod_common.group_id
@@ -232,7 +232,7 @@ module "nonprod_common_ingress_smb_udp2_common" {
 
 # ingress tcp nfs_access_prod_common:
 module "nonprod_common_ingress_tcp_nfs_access_prod_common" {
-    source                = "git::https://git.version1.com/scm/ivo/oci-terraform-modules-v0.12.git//modules/network-sec-rules"
+    source                = "./modules/network-sec-rules"
     net_sec_group_id      = module.security_group_nonprod_common.group_id
     net_sec_rule_desc    = "vnc_access_prod_common"
     net_sec_rule_source = module.security_group_prod_common.group_id
@@ -244,7 +244,7 @@ module "nonprod_common_ingress_tcp_nfs_access_prod_common" {
 
 # ingress tcp nfs_access_prod_common:
 module "nonprod_common_ingress_tcp_nfs_access_prod_common_2" {
-    source                = "git::https://git.version1.com/scm/ivo/oci-terraform-modules-v0.12.git//modules/network-sec-rules"
+    source                = "./modules/network-sec-rules"
     net_sec_group_id      = module.security_group_nonprod_common.group_id
     net_sec_rule_desc    = "vnc_access_prod_common"
     net_sec_rule_source = module.security_group_prod_common.group_id
@@ -256,7 +256,7 @@ module "nonprod_common_ingress_tcp_nfs_access_prod_common_2" {
 
 # ingress udp nfs_access_prod_common:
 module "nonprod_common_ingress_udp_nfs_access_prod_common" {
-    source                = "git::https://git.version1.com/scm/ivo/oci-terraform-modules-v0.12.git//modules/network-sec-rules"
+    source                = "./modules/network-sec-rules"
     net_sec_group_id      = module.security_group_nonprod_common.group_id
     net_sec_rule_desc    = "vnc_access_prod_common"
     net_sec_rule_source = module.security_group_prod_common.group_id
@@ -268,7 +268,7 @@ module "nonprod_common_ingress_udp_nfs_access_prod_common" {
 
 # ingress udp nfs_access_prod_common:
 module "nonprod_common_ingress_udp_nfs_access_prod_common_2" {
-    source                = "git::https://git.version1.com/scm/ivo/oci-terraform-modules-v0.12.git//modules/network-sec-rules"
+    source                = "./modules/network-sec-rules"
     net_sec_group_id      = module.security_group_nonprod_common.group_id
     net_sec_rule_desc    = "vnc_access_prod_common"
     net_sec_rule_source = module.security_group_prod_common.group_id

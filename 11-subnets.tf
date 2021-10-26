@@ -4,7 +4,7 @@
 # Production Red Tier:
 
 module "subnet_ext_prod" {
-  source              = "git::https://git.version1.com/scm/ivo/oci-terraform-modules-v0.12.git//modules/subnet"
+  source              = "./modules/subnet"
   subnet_display_name = "Prod External Subnet"
   subnet_dns_label    = "prodext"
   cidr_block          = var.ip_subnet_ext_prod
@@ -24,7 +24,7 @@ output "subnet_ext_prod_id" {
 # DMZ Production Red Tier:
 
 module "subnet_dmz_prod" {
-  source              = "git::https://git.version1.com/scm/ivo/oci-terraform-modules-v0.12.git//modules/subnet"
+  source              = "./modules/subnet"
   subnet_display_name = "Prod DMZ Subnet"
   subnet_dns_label    = "proddmz"
   cidr_block          = var.ip_subnet_dmz_prod
@@ -44,7 +44,7 @@ output "subnet_dmz_prod_id" {
 # Production Amber Tier:
 
 module "subnet_app_prod" {
-  source              = "git::https://git.version1.com/scm/ivo/oci-terraform-modules-v0.12.git//modules/subnet"
+  source              = "./modules/subnet"
   subnet_display_name = "Prod Application Subnet"
   subnet_dns_label    = "prodapp"
   cidr_block          = var.ip_subnet_app_prod
@@ -64,7 +64,7 @@ output "subnet_app_prod_id" {
 # Production Green Tier:
 
 module "subnet_db_prod" {
-  source              = "git::https://git.version1.com/scm/ivo/oci-terraform-modules-v0.12.git//modules/subnet"
+  source              = "./modules/subnet"
   subnet_display_name = "Prod Database Subnet"
   subnet_dns_label    = "proddb"
   cidr_block          = var.ip_subnet_db_prod
@@ -84,7 +84,7 @@ output "subnet_db_prod_id" {
 # NonProd DMZ Tier:
 
 module "subnet_dmz_nonprod" {
-  source              = "git::https://git.version1.com/scm/ivo/oci-terraform-modules-v0.12.git//modules/subnet"
+  source              = "./modules/subnet"
   subnet_display_name = "NonProd DMZ Subnet"
   subnet_dns_label    = "nonproddmz"
   cidr_block          = var.ip_subnet_dmz_nonprod
@@ -104,7 +104,7 @@ output "subnet_dmz_nonprod_id" {
 # NonProd External App Tier:
 
 module "subnet_ext_nonprod" {
-  source              = "git::https://git.version1.com/scm/ivo/oci-terraform-modules-v0.12.git//modules/subnet"
+  source              = "./modules/subnet"
   subnet_display_name = "NonProd External Application Subnet"
   subnet_dns_label    = "nonprodext"
   cidr_block          = var.ip_subnet_ext_nonprod
@@ -124,7 +124,7 @@ output "subnet_ext_nonprod_id" {
 # NonProd Internal App Tier:
 
 module "subnet_app_nonprod" {
-  source              = "git::https://git.version1.com/scm/ivo/oci-terraform-modules-v0.12.git//modules/subnet"
+  source              = "./modules/subnet"
   subnet_display_name = "NonProd Internal Application Subnet"
   subnet_dns_label    = "nonprodapp"
   cidr_block          = var.ip_subnet_app_nonprod
@@ -144,7 +144,7 @@ output "subnet_app_nonprod_id" {
 # NonProd DB Tier:
 
 module "subnet_db_nonprod" {
-  source              = "git::https://git.version1.com/scm/ivo/oci-terraform-modules-v0.12.git//modules/subnet"
+  source              = "./modules/subnet"
   subnet_display_name = "NonProd Database Subnet"
   subnet_dns_label    = "nonproddb"
   cidr_block          = var.ip_subnet_db_nonprod

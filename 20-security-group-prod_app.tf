@@ -3,7 +3,7 @@
 ############################################################################
 
 module "security_group_prod_app" {
-    source                         = "git::https://git.version1.com/scm/ivo/oci-terraform-modules-v0.12.git//modules/network-sec-groups"
+    source                         = "./modules/network-sec-groups"
     compartment_id                 = module.compartment-common-services.compartment_id
     vcn_id                         = module.vcn.vcn_id
     network_sec_group_display_name = "prod_app"
@@ -17,7 +17,7 @@ output "security_group_prod_app_id" {
  
 # ingress tcp :
 module "prod_app_ingress_tcp_2" {
-    source                = "git::https://git.version1.com/scm/ivo/oci-terraform-modules-v0.12.git//modules/network-sec-rules"
+    source                = "./modules/network-sec-rules"
     net_sec_group_id      = module.security_group_prod_app.group_id
     net_sec_rule_desc    = "LB access"
     net_sec_rule_source = module.security_group_prod_lb.group_id
@@ -28,7 +28,7 @@ module "prod_app_ingress_tcp_2" {
 }
  
 module "prod_app_ingress_tcp_3" {
-    source                = "git::https://git.version1.com/scm/ivo/oci-terraform-modules-v0.12.git//modules/network-sec-rules"
+    source                = "./modules/network-sec-rules"
     net_sec_group_id      = module.security_group_prod_app.group_id
     net_sec_rule_desc    = ""
     net_sec_rule_source = module.security_group_prod_access.group_id
@@ -39,7 +39,7 @@ module "prod_app_ingress_tcp_3" {
 }
 
 module "prod_app_ingress_tcp_db" {
-    source                = "git::https://git.version1.com/scm/ivo/oci-terraform-modules-v0.12.git//modules/network-sec-rules"
+    source                = "./modules/network-sec-rules"
     net_sec_group_id      = module.security_group_prod_app.group_id
     net_sec_rule_desc    = ""
     net_sec_rule_source = module.security_group_prod_db.group_id
@@ -50,7 +50,7 @@ module "prod_app_ingress_tcp_db" {
 }
 
 module "prod_app_ingress_tcp_4" {
-    source                = "git::https://git.version1.com/scm/ivo/oci-terraform-modules-v0.12.git//modules/network-sec-rules"
+    source                = "./modules/network-sec-rules"
     net_sec_group_id      = module.security_group_prod_app.group_id
     net_sec_rule_desc    = ""
     net_sec_rule_source = module.security_group_prod_access.group_id
@@ -62,7 +62,7 @@ module "prod_app_ingress_tcp_4" {
 /*
 # prod_app_ingress_sftp_barts:
 module "prod_app_ingress_sftp_barts" {
-    source                = "git::https://git.version1.com/scm/ivo/oci-terraform-modules-v0.12.git//modules/network-sec-rules"
+    source                = "./modules/network-sec-rules"
     net_sec_group_id      = module.security_group_prod_app.group_id
     net_sec_rule_desc    = "prod_app_ingress_sftp_barts"
     net_sec_rule_source  = var.ip_barts_domain
@@ -74,7 +74,7 @@ module "prod_app_ingress_sftp_barts" {
 
 # prod_app_ingress_disco_barts:
 module "prod_app_ingress_disco_barts" {
-    source                = "git::https://git.version1.com/scm/ivo/oci-terraform-modules-v0.12.git//modules/network-sec-rules"
+    source                = "./modules/network-sec-rules"
     net_sec_group_id      = module.security_group_prod_app.group_id
     net_sec_rule_desc    = "prod_app_ingress_sftp_barts"
     net_sec_rule_source  = var.ip_barts_domain
@@ -86,7 +86,7 @@ module "prod_app_ingress_disco_barts" {
 
 # prod_app_ingress_smb_tcp1_barts :
 module "prod_app_ingress_smb_tcp1_barts" {
-    source                = "git::https://git.version1.com/scm/ivo/oci-terraform-modules-v0.12.git//modules/network-sec-rules"
+    source                = "./modules/network-sec-rules"
     net_sec_group_id      = module.security_group_prod_app.group_id
     net_sec_rule_desc    = "prod_app_ingress_smb_tcp1_barts"
     net_sec_rule_source  = var.ip_barts_domain
@@ -98,7 +98,7 @@ module "prod_app_ingress_smb_tcp1_barts" {
 
 # prod_app_ingress_smb_tcp2_barts :
 module "prod_app_ingress_smb_tcp2_barts" {
-    source                = "git::https://git.version1.com/scm/ivo/oci-terraform-modules-v0.12.git//modules/network-sec-rules"
+    source                = "./modules/network-sec-rules"
     net_sec_group_id      = module.security_group_prod_app.group_id
     net_sec_rule_desc    = "prod_app_ingress_smb_tcp2_barts"
     net_sec_rule_source  = var.ip_barts_domain
@@ -110,7 +110,7 @@ module "prod_app_ingress_smb_tcp2_barts" {
 
 # prod_app_ingress_smb_udp1_barts :
 module "prod_app_ingress_smb_udp1" {
-    source                = "git::https://git.version1.com/scm/ivo/oci-terraform-modules-v0.12.git//modules/network-sec-rules"
+    source                = "./modules/network-sec-rules"
     net_sec_group_id      = module.security_group_prod_app.group_id
     net_sec_rule_desc    = "prod_app_ingress_smb_udp1_barts"
     net_sec_rule_source  = var.ip_barts_domain
@@ -122,7 +122,7 @@ module "prod_app_ingress_smb_udp1" {
 
 # prod_app_ingress_smb_udp2_barts :
 module "prod_app_ingress_smb_udp2_barts" {
-    source                = "git::https://git.version1.com/scm/ivo/oci-terraform-modules-v0.12.git//modules/network-sec-rules"
+    source                = "./modules/network-sec-rules"
     net_sec_group_id      = module.security_group_prod_app.group_id
     net_sec_rule_desc    = "prod_app_ingress_smb_udp2_barts"
     net_sec_rule_source  = var.ip_barts_domain
@@ -134,7 +134,7 @@ module "prod_app_ingress_smb_udp2_barts" {
 
 # prod_app_ingress_ping_imerja :
 module "prod_app_ingress_ping_imerja" {
-    source                = "git::https://git.version1.com/scm/ivo/oci-terraform-modules-v0.12.git//modules/network-sec-rules"
+    source                = "./modules/network-sec-rules"
     net_sec_group_id      = module.security_group_prod_app.group_id
     net_sec_rule_desc    = "prod_app_ingress_ping_imerja"
     net_sec_rule_source = var.ip_imerja_domain
@@ -144,7 +144,7 @@ module "prod_app_ingress_ping_imerja" {
 
 # prod_app_ingress_netbios_udp_imerja :
 module "prod_app_ingress_netbios_udp_imerja" {
-    source                = "git::https://git.version1.com/scm/ivo/oci-terraform-modules-v0.12.git//modules/network-sec-rules"
+    source                = "./modules/network-sec-rules"
     net_sec_group_id      = module.security_group_prod_app.group_id
     net_sec_rule_desc    = "prod_app_ingress_netbios_udp_imerja"
     net_sec_rule_source  = var.ip_imerja_domain
@@ -156,7 +156,7 @@ module "prod_app_ingress_netbios_udp_imerja" {
 
 # prod_app_ingress_netbios_tcp_imerja:
 module "prod_app_ingress_netbios_tcp_imerja" {
-    source                = "git::https://git.version1.com/scm/ivo/oci-terraform-modules-v0.12.git//modules/network-sec-rules"
+    source                = "./modules/network-sec-rules"
     net_sec_group_id      = module.security_group_prod_app.group_id
     net_sec_rule_desc    = "prod_app_ingress_netbios_tcp_imerja"
     net_sec_rule_source  = var.ip_imerja_domain
@@ -168,7 +168,7 @@ module "prod_app_ingress_netbios_tcp_imerja" {
 */
 # prod_app_ingress_sftp_prod_leb-ext:
 module "prod_app_ingress_tcp_22" {
-    source                = "git::https://git.version1.com/scm/ivo/oci-terraform-modules-v0.12.git//modules/network-sec-rules"
+    source                = "./modules/network-sec-rules"
     net_sec_group_id      = module.security_group_prod_app.group_id
     net_sec_rule_desc    = "LB access"
     net_sec_rule_source = module.security_group_prod_lb_ext.group_id
@@ -180,7 +180,7 @@ module "prod_app_ingress_tcp_22" {
 
 # prod_app_ingress_smt_from_db:
 module "prod_app_ingress_tcp_25" {
-    source                = "git::https://git.version1.com/scm/ivo/oci-terraform-modules-v0.12.git//modules/network-sec-rules"
+    source                = "./modules/network-sec-rules"
     net_sec_group_id      = module.security_group_prod_app.group_id
     net_sec_rule_desc    = "smtp access"
     net_sec_rule_source = module.security_group_prod_common.group_id
@@ -193,7 +193,7 @@ module "prod_app_ingress_tcp_25" {
 
 /*
 module "prod_app_egress_tcp_25" {
-    source                = "git::https://git.version1.com/scm/ivo/oci-terraform-modules-v0.12.git//modules/network-sec-rules"
+    source                = "./modules/network-sec-rules"
     net_sec_group_id      = module.security_group_prod_app.group_id
     net_sec_rule_desc    = "smtp to imerja mail server"
     net_sec_rule_dest  = var.ip_imerja_domain2
@@ -204,7 +204,7 @@ module "prod_app_egress_tcp_25" {
 }
 
 module "prod_app_egress_tcp_143" {
-    source                = "git::https://git.version1.com/scm/ivo/oci-terraform-modules-v0.12.git//modules/network-sec-rules"
+    source                = "./modules/network-sec-rules"
     net_sec_group_id      = module.security_group_prod_app.group_id
     net_sec_rule_desc    = "LB access"
     net_sec_rule_dest  = var.ip_imerja_domain2
@@ -215,7 +215,7 @@ module "prod_app_egress_tcp_143" {
 }
 
 module "prod_app_ingress_tcp_DBBACS" {
-    source                = "git::https://git.version1.com/scm/ivo/oci-terraform-modules-v0.12.git//modules/network-sec-rules"
+    source                = "./modules/network-sec-rules"
     net_sec_group_id      = module.security_group_prod_app.group_id
     net_sec_rule_desc    = "DB BACS access"
     net_sec_rule_source  = var.ip_barts_domain
@@ -226,7 +226,7 @@ module "prod_app_ingress_tcp_DBBACS" {
 }
 */
 module "prod_app_ingress_http_BACS" {
-    source                = "git::https://git.version1.com/scm/ivo/oci-terraform-modules-v0.12.git//modules/network-sec-rules"
+    source                = "./modules/network-sec-rules"
     net_sec_group_id      = module.security_group_prod_app.group_id
     net_sec_rule_desc    = "BACS 4443 access"
     net_sec_rule_source  = module.security_group_prod_lb_ext.group_id
@@ -251,7 +251,7 @@ resource "oci_core_network_security_group_security_rule" "prod_app_ingress_ping_
 } 
 
 module "prod_app_ingress_prod_app_ext_http3" {
-    source                   = "git::https://git.version1.com/scm/ivo/oci-terraform-modules-v0.12.git//modules/network-sec-rules"
+    source                   = "./modules/network-sec-rules"
     net_sec_group_id         = module.security_group_prod_app.group_id
     net_sec_rule_desc        = "prod_app_ingress_prod_app_ext_http3"
     net_sec_rule_source      = module.security_group_prod_app_ext.group_id
@@ -262,7 +262,7 @@ module "prod_app_ingress_prod_app_ext_http3" {
 }
 
 module "prod_app_ingress_ssh_nonprod_app" {
-    source                = "git::https://git.version1.com/scm/ivo/oci-terraform-modules-v0.12.git//modules/network-sec-rules"
+    source                = "./modules/network-sec-rules"
     net_sec_group_id      = module.security_group_prod_app.group_id
     net_sec_rule_desc    = "prod_app_ingress_ssh_nonprod_app"
     net_sec_rule_source = module.security_group_nonprod_app.group_id

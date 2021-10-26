@@ -4,7 +4,7 @@
 # common services admins group:
 
 module "group_common_services_admins" {
-  source           = "git::https://git.version1.com/scm/ivo/oci-terraform-modules-v0.12.git//modules/identity_group"
+  source           = "./modules/identity_group"
   tenancy_ocid     = var.tenancy_ocid
   user_ocid        = var.user_ocid
   fingerprint      = var.fingerprint
@@ -24,7 +24,7 @@ module "group_common_services_admins" {
 # Prod Services admins Group:
 
 module "group_prod_services_admins" {
-  source           = "git::https://git.version1.com/scm/ivo/oci-terraform-modules-v0.12.git//modules/identity_group"
+  source           = "./modules/identity_group"
   tenancy_ocid     = var.tenancy_ocid
   user_ocid        = var.user_ocid
   fingerprint      = var.fingerprint
@@ -46,7 +46,7 @@ module "group_prod_services_admins" {
 # Non Prod Services admins Group:
 
 module "group_nonprod_services_admins" {
-  source           = "git::https://git.version1.com/scm/ivo/oci-terraform-modules-v0.12.git//modules/identity_group"
+  source           = "./modules/identity_group"
   tenancy_ocid     = var.tenancy_ocid
   user_ocid        = var.user_ocid
   fingerprint      = var.fingerprint
@@ -68,7 +68,7 @@ module "group_nonprod_services_admins" {
 # common services read only group:
 
 module "group_common_services_read_only" {
-  source           = "git::https://git.version1.com/scm/ivo/oci-terraform-modules-v0.12.git//modules/identity_group"
+  source           = "./modules/identity_group"
   tenancy_ocid     = var.tenancy_ocid
   user_ocid        = var.user_ocid
   fingerprint      = var.fingerprint
@@ -88,7 +88,7 @@ module "group_common_services_read_only" {
 # Prod Services read only Group:
 
 module "group_prod_services_read_only" {
-  source           = "git::https://git.version1.com/scm/ivo/oci-terraform-modules-v0.12.git//modules/identity_group"
+  source           = "./modules/identity_group"
   tenancy_ocid     = var.tenancy_ocid
   user_ocid        = var.user_ocid
   fingerprint      = var.fingerprint
@@ -110,7 +110,7 @@ module "group_prod_services_read_only" {
 # Non-Prod Services read only Group:
 
 module "group_nonprod_services_read_only" {
-  source           = "git::https://git.version1.com/scm/ivo/oci-terraform-modules-v0.12.git//modules/identity_group"
+  source           = "./modules/identity_group"
   tenancy_ocid     = var.tenancy_ocid
   user_ocid        = var.user_ocid
   fingerprint      = var.fingerprint
@@ -142,7 +142,7 @@ resource "oci_identity_policy" "objectstorage_service_policy" {
 }
 
 module "group_objstorage" {
-  source           = "git::https://git.version1.com/scm/ivo/oci-terraform-modules-v0.12.git//modules/identity_group"
+  source           = "./modules/identity_group"
   tenancy_ocid     = var.tenancy_ocid
   user_ocid        = var.user_ocid
   fingerprint      = var.fingerprint
