@@ -4,9 +4,9 @@
 # Tenancy:
 
 variable "tenancy_ocid" {}
-#variable "user_ocid" {}
-#variable "fingerprint" {}
-#variable "private_key_path" {}
+variable "user_ocid" {}
+variable "fingerprint" {}
+variable "private_key_path" {}
 variable "region" {}
 
 ##Label used as a prefix for naming resources

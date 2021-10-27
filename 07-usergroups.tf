@@ -2,7 +2,7 @@
 # User Groups:
 ############################################################################
 # common services admins group:
-
+/*
 module "group_common_services_admins" {
   source           = "./modules/identity_group"
   tenancy_ocid     = var.tenancy_ocid
@@ -185,3 +185,4 @@ resource "oci_identity_policy" "scheduler_dynamic_group_policy" {
 }
 
 ############################################################################
+*/
