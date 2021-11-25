@@ -68,14 +68,14 @@ variables:
 
   region:
     title: "Region"
-    description: "Choose Region where you deploy your Webserver"
+    description: "Choose Region where you deploy your application"
     type: oci:identity:region:name
     required: true
     visibile: true
 
   compartment_ocid:
     title: "Compartment OCID"
-    description: "Choose Comparment where you deploy your Webserver"
+    description: "Choose Comparment where you deploy your application"
     type: oci:identity:compartment:id
     required: true
     visibile: true
